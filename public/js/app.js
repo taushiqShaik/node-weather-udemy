@@ -1,21 +1,4 @@
 
-
-
-// fetch("http://puzzle.mead.io/puzzle").then((response)=>{
-//     // if(error){
-//     //     return console.log(error)
-//     // }
-//     response.json().then((data)=>{
-//         console.log(data)
-//     })
-// })
-
-
-
-
-
-
-
 const weatherForm = document.querySelector('form');
 
 const search = document.querySelector('input');
