@@ -4,8 +4,8 @@ const chalk = require('chalk');
 
 let url;
 
-const forecast =(lat,long,callback)=>{
-    const url ='http://api.weatherstack.com/current?access_key=52629b106a822d1efda86ae758a58792&query='+lat+','+long+'&units=m';
+const forecast =(city,callback)=>{
+    const url ='http://api.weatherstack.com/current?access_key=52629b106a822d1efda86ae758a58792&query='+city+'&units=m';
     //console.log(url);
     request({url, json:true}, (error,{body})=>{
         //const data= JSON.parse(response.body);
@@ -33,7 +33,9 @@ const forecast =(lat,long,callback)=>{
             let precip = body.current.precip;
             let location = body.location.name;
             let weathercondi = body.current.weather_descriptions[0];
-            callback(undefined,weathercondi+'. It is currently '+temp+' degrees in '+location+' with '+precip+'% chance of rain');
+            let feelslike = body.current.feelslike;
+            console.log(feelslike)
+            callback(undefined,weathercondi+'. It is currently '+temp+' degrees in '+location+' and feelslike '+feelslike+' with '+precip+'% chance of rain');
         }
     });
 
